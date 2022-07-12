@@ -94,7 +94,24 @@ public class DashboardFormController {
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
+        Student s = new Student(
+                txtStudentId.getText(),txtStudentName.getText(),txtStudentEmail.getText(),txtStudentContact.getText(),txtStudentAddress.getText(),
+                txtStudentNic.getText()
+        );
 
+        try{
+            boolean isUpdated = CrudUtil.execute("UPDATE Student SET student_name=? , email=? ,contact=? ,address=? , nic=? WHERE student_id=?",s.getName(),s.getEmail(),s.getContact(),s.getAddress(),
+                    s.getNic(),s.getId());
+            if (isUpdated){
+                new Alert(Alert.AlertType.CONFIRMATION, "Updated!").show();
+            }else{
+                new Alert(Alert.AlertType.WARNING, "Try Again!").show();
+            }
+
+
+        }catch (SQLException | ClassNotFoundException e){
+
+        }
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
