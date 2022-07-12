@@ -70,3 +70,48 @@ CREATE TABLE IF NOT EXISTS Payment(
     CONSTRAINT PRIMARY KEY (payment_id),
     CONSTRAINT FOREIGN KEY (registration_id ) references Registration(registration_id ) ON DELETE    CASCADE ON UPDATE CASCADE
 );
+
+
+#--------------------Student ------------------------------------------
+
+INSERT INTO Student VALUES('S001','Danapala','amalijse60@gmail.com','0771496756','Panadura','6778776V');
+INSERT INTO Student VALUES('S002','nuwan','nuwanijse60@gmail.com','0771496345','galle','4538776V');
+INSERT INTO Student VALUES('S003','kasun','kasunijse60@gmail.com','0771496675','kautara','4538453V');
+INSERT INTO Student VALUES('S004','nadun','nadunijse60@gmail.com','0771496342','colombo','4538453V');
+INSERT INTO Student VALUES('S005','sameera','sameeraijse60@gmail.com','0771496674','kautara','4538567V');
+
+
+#--------------------Teacher ------------------------------------------
+
+INSERT INTO Teacher VALUES('T001','Amaya','6778776V','0771496756','Panadura');
+INSERT INTO Teacher VALUES('T002','Nimanthi','6778456V','0771496123','Galle');
+INSERT INTO Teacher VALUES('T003','Ishara','6778544V','0771496321','Kalutara');
+INSERT INTO Teacher VALUES('T004','Gayani','6778786V','0771496675','Colombo');
+INSERT INTO Teacher VALUES('T005','Nethmi','6778345V','0771496789','Panadura');
+
+
+#--------------------Subject ------------------------------------------
+
+INSERT INTO Subject VALUES('SU001','PRF',65,'T001');
+INSERT INTO Subject VALUES('SU002','DBM',55,'T002');
+INSERT INTO Subject VALUES('SU003','ORM',85,'T003');
+INSERT INTO Subject VALUES('SU004','JDBC',95,'T004');
+INSERT INTO Subject VALUES('SU005','OOP',78,'T005');
+
+#--------------------Course ------------------------------------------
+
+INSERT INTO Course VALUES('C001','Web',55000,'3 Months','SU001');
+INSERT INTO Course VALUES('C002','App',50000,'3 Months','SU002');
+INSERT INTO Course VALUES('C003','Mobile',85000,'3 Months','SU003');
+INSERT INTO Course VALUES('C004','Game',45000,'3 Months','SU004');
+INSERT INTO Course VALUES('C005','Basic',15000,'3 Months','SU005');
+
+#--------------------intake ------------------------------------------
+
+INSERT INTO intake VALUES('I001','2022-9-15','Test','Test','C001');
+INSERT INTO intake VALUES('I002','2022-9-15','Test','Test','C002');
+INSERT INTO intake VALUES('I003','2022-9-15','Test','Test','C003');
+INSERT INTO intake VALUES('I004','2022-9-15','Test','Test','C004');
+INSERT INTO intake VALUES('I005','2022-9-15','Test','Test','C005');
+
+
