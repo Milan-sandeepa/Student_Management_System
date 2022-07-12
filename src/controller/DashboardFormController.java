@@ -104,4 +104,21 @@ public class DashboardFormController {
     public void textFields_Key_Released(KeyEvent keyEvent) {
 
     }
+
+    public void txtSearchOnAction(ActionEvent actionEvent) {
+        try {
+            ResultSet result =  CrudUtil.execute("SELECT * FROM Student WHERE student_id=?",txtStudentId.getText());
+            if (result.next()) {
+                txtStudentName.setText(result.getString(2));
+                txtStudentEmail.setText(result.getString(3));
+                txtStudentContact.setText(result.getString(4));
+                txtStudentAddress.setText(result.getString(5));
+                txtStudentNic.setText(result.getString(6));
+            } else {
+                new Alert(Alert.AlertType.WARNING, "Empty Result").show();
+            }
+        }catch (SQLException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
+    }
 }
