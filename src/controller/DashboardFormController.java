@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -46,6 +47,7 @@ public class DashboardFormController {
 
         try {
             loadAllStudents();
+            tblStudent.refresh();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -73,7 +75,22 @@ public class DashboardFormController {
     }
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
+        Student s = new Student(
+                txtStudentId.getText(),txtStudentName.getText(),txtStudentEmail.getText(),txtStudentContact.getText(),txtStudentAddress.getText(),
+                txtStudentNic.getText()
+        );
 
+        try {
+            if (CrudUtil.execute("INSERT INTO Student VALUES (?,?,?,?,?,?)",s.getId(),s.getName(),s.getEmail(),s.getContact(),s.getAddress(),
+            s.getNic())){
+                tblStudent.refresh();
+                new Alert(Alert.AlertType.CONFIRMATION, "Saved!..").show();
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+        tblStudent.refresh();
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
