@@ -115,7 +115,16 @@ public class DashboardFormController {
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
+        try{
+            if (CrudUtil.execute("DELETE FROM Student WHERE student_id=?",txtStudentId.getText())){
+                new Alert(Alert.AlertType.CONFIRMATION, "Deleted!").show();
+            }else{
+                new Alert(Alert.AlertType.WARNING, "Try Again!").show();
+            }
 
+        }catch (SQLException | ClassNotFoundException e){
+
+        }
     }
 
     public void textFields_Key_Released(KeyEvent keyEvent) {
