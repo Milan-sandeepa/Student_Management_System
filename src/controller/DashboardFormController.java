@@ -119,6 +119,14 @@ public class DashboardFormController {
         }catch (SQLException | ClassNotFoundException e){
 
         }
+
+        try {
+            loadAllStudents();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
@@ -132,6 +140,14 @@ public class DashboardFormController {
         }catch (SQLException | ClassNotFoundException e){
 
         }
+        try {
+            loadAllStudents();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void textFields_Key_Released(KeyEvent keyEvent) {
