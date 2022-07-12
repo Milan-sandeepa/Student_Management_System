@@ -134,6 +134,10 @@ public class DashboardFormController {
         }
     }
 
+    public void textFields_Key_Released(KeyEvent keyEvent) {
+
+    }
+
     public void txtSearchOnAction(ActionEvent actionEvent) {
         try {
             ResultSet result =  CrudUtil.execute("SELECT * FROM Student WHERE student_id=?",txtStudentId.getText());
