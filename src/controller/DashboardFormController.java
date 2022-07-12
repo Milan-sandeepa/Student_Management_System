@@ -90,7 +90,14 @@ public class DashboardFormController {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
-        tblStudent.refresh();
+
+        try {
+            loadAllStudents();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
@@ -125,10 +132,6 @@ public class DashboardFormController {
         }catch (SQLException | ClassNotFoundException e){
 
         }
-    }
-
-    public void textFields_Key_Released(KeyEvent keyEvent) {
-
     }
 
     public void txtSearchOnAction(ActionEvent actionEvent) {
